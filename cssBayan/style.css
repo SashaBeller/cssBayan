@@ -19,6 +19,7 @@ img {
     width: 400px;
 }
 .meme-container {
+    /* padding: 0 2vh 0 2vh; */
     display: flex;
     width: 100%;
     align-items: center;
@@ -48,4 +49,18 @@ img {
     transform: rotate(90deg);
     font-size: 20px;
     color: #092639;
+}
+
+.meme-list label + input[type="radio"]{
+    display: none;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s;
+}
+
+.meme-list label + input[type="radio"]:checked + .content{
+    max-height: 600px;
 }
