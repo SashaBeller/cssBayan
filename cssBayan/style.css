@@ -1,8 +1,14 @@
 * {
     margin: 0;
     padding: 0;
+    overflow-x:hidden;
     font-family:Georgia, 'Times New Roman', Times, serif;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
 }
 
 body {
@@ -10,57 +16,101 @@ body {
 }
 
 h1{
-    margin-top: 15px;
+    margin: 2vh;
     color:aliceblue;
 }
 
 img {
-    height: 400px;
-    width: 400px;
+    height: 25vw;
+    width: 25vw;
 }
+
 .meme-container {
-    /* padding: 0 2vh 0 2vh; */
+    padding: 0 2vh 0 2vh;
     display: flex;
     width: 100%;
     align-items: center;
     flex-direction: column;
 }
 
-.meme-list li {
+.meme-item li {
     list-style: none;
-    margin: 20px;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+    width: 45vw;
     background-color: rgb(254, 254, 254);
-    border-radius: 5px;
+    border-radius: 1vh;
 }
 
-.meme-list li label {
+.meme-item li label {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px;
-    font-size: 22px;
+    margin: 1em;
+    font-size: 1.5em;
     font-weight: 700;
     color: #092639;
     cursor: pointer;
 }
 
-.meme-list li label span {
-    transform: rotate(90deg);
-    font-size: 20px;
+.meme-item li label span {
+    display: none;
+    font-size: 2vw;
     color: #092639;
 }
 
-.meme-list label + input[type="radio"]{
+.meme-item label + input[type="radio"]{
     display: none;
 }
 
 .content {
     max-height: 0;
+    margin: 0 auto;
     overflow: hidden;
-    transition: max-height 0.7s;
+    transition: 0.5s;
 }
 
-.meme-list label + input[type="radio"]:checked + .content{
-    max-height: 600px;
+.meme-item label + input[type="radio"]:checked + .content{
+    max-height: 100vh;
 }
+
+ 
+/* hover */
+.accordion:hover label,
+    input[type='radio']:checked + label{
+      color: rgb(58, 70, 226);
+ }
+
+.accordion:hover span {
+    display: block;
+    transform: rotate(90deg);
+}
+
+.meme-item:hover .content{
+    max-height: 100vh;
+    transition: all 0.8s ease-in-out;
+}
+
+@media screen and (max-width: 820px){
+    .accordion:hover img {
+      height: 30vw;
+      width: 30vw;
+    }
+   h1 {
+    font-size: 4vh;
+    margin-top: 3vh;
+   }
+  }
+
+@media screen and (max-width: 375px){
+    h1 {
+        font-size: 3vh;
+        margin-top: 2vh;
+       }
+       .meme-item li label {
+        margin: 1vh;
+        font-size: 0.6em;
+        font-weight: 700;
+    }
+  }
