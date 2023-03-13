@@ -53,12 +53,14 @@ img {
     font-weight: 700;
     color: #092639;
     cursor: pointer;
+    /* transition: all .5s ease-in; */
 }
 
-.meme-item li label span {
+.icon {
     display: none;
     font-size: 2vw;
     color: #092639;
+    transition: all .5s ease-in;
 }
 
 .meme-item label + input[type="radio"]{
@@ -66,36 +68,45 @@ img {
 }
 
 .content {
+    display: flex;
+    justify-content: center;
     max-height: 0;
     margin: 0 auto;
     overflow: hidden;
-    transition: 0.5s;
+    transform: scale(0);
+    transition: all 0.5s ease-in;
 }
 
 .meme-item label + input[type="radio"]:checked + .content{
     max-height: 100vh;
+    transform: scale(1);
 }
+
  
 /* hover */
-.accordion:hover label,
-    input[type='radio']:checked + label{
-      color: rgb(58, 70, 226);
- }
+@media screen and (hover: hover)  {
+    .accordion:hover label,
+        input[type='radio']:checked + label{
+        color: rgb(58, 70, 226);
+    }
 
-.accordion:hover span {
-    display: block;
-    transform: rotate(90deg);
-}
+    .accordion:hover .icon {
+        display: block;
+        transform: rotate(90deg);
+    }
 
-.meme-item:hover .content{
-    max-height: 100vh;
-    transition: all 0.8s ease-in-out;
+    .meme-item:hover .content{
+        max-height: 100vh;
+        transition: all 0.8s ease-in-out;
+        transform: scale(1);
+    }
 }
 
 @media screen and (max-width: 820px){
-    .accordion:hover img {
+    img {
       height: 30vw;
       width: 30vw;
+      transform: scale(1);
     }
    h1 {
     font-size: 4vh;
@@ -112,5 +123,10 @@ img {
         margin: 1vh;
         font-size: 0.6em;
         font-weight: 700;
+    }
+    img {
+        height: 30vw;
+        width: 30vw;
+        transform: scale(1);
     }
   }
